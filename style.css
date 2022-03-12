@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+}
+
+.square {
+    width: 30px;
+    height: 30px;
+    border-width: 2px;
+    border-style: solid;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    margin: -2px -2px 0 0;
+}
