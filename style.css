@@ -25,7 +25,17 @@
 
 button {
     padding: 8px 16px;
-    margin: 8px auto;
+    margin: 8px 0;
     font-size: 18px;
     display: block;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.active {
+    font-weight: 700;
 }
