@@ -21,7 +21,10 @@ function setNewGridSize() {
 
 function paintBlack(e) {
     if (!e.target.classList.contains('square')) return;
-    e.target.classList.add('colored');
+    console.dir(e)
+    if (e.which === 1) {
+        e.target.classList.add('colored');
+    }
 }
 
 function paintRainbow(e) {
@@ -29,7 +32,9 @@ function paintRainbow(e) {
     const r = Math.round(Math.random() * 255);
     const g = Math.round(Math.random() * 255);
     const b = Math.round(Math.random() * 255);
+    if (e.which === 1) {
     e.target.style.backgroundColor = `rgb(${r},${g}, ${b})`;
+    }
 }
 
 function toggleButtons() {
@@ -39,7 +44,8 @@ function toggleButtons() {
 
 makeGrid(16);
 
-containerEl.addEventListener('mouseover', paintBlack)
+containerEl.addEventListener('mouseover', paintBlack);
+containerEl.addEventListener('mousedown', paintBlack);
 
 const clearBtn = document.querySelector('.clear');
 clearBtn.addEventListener('click', () => {
@@ -55,7 +61,9 @@ rainbowBtn.addEventListener('click', () => {
         element.classList.remove('colored');
     });
     containerEl.removeEventListener('mouseover', paintBlack);
-    containerEl.addEventListener('mouseover', paintRainbow)
+    containerEl.removeEventListener('mousedown', paintBlack);
+    containerEl.addEventListener('mouseover', paintRainbow);
+    containerEl.addEventListener('mousedown', paintRainbow);
     toggleButtons();
 })
 
@@ -66,6 +74,8 @@ blackBtn.addEventListener('click', () => {
         element.style.backgroundColor = '';
     });
     containerEl.removeEventListener('mouseover', paintRainbow);
+    containerEl.removeEventListener('mousedown', paintRainbow);
     containerEl.addEventListener('mouseover', paintBlack);
+    containerEl.addEventListener('mousedown', paintBlack);
     toggleButtons();
 })
