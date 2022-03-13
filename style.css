@@ -5,22 +5,27 @@
 
 .container {
     margin: 0 auto;
-    width: 450px;
+    width: 600px;
     display: flex;
     flex-wrap: wrap;
     padding: 8px;
 }
 
 .square {
-    width: 30px;
-    height: 30px;
     border-width: 2px;
     border-style: solid;
     flex-shrink: 0;
-    box-sizing: border-box;
     margin: -2px -2px 0 0;
+    box-sizing: border-box;
 }
 
 .colored {
     background-color: black;
+}
+
+button {
+    padding: 8px 16px;
+    margin: 8px auto;
+    font-size: 18px;
+    display: block;
 }
